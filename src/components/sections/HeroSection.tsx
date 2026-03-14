@@ -178,7 +178,7 @@ export default function HeroSection() {
           <video
             ref={videoRef}
             className="w-full h-full object-cover"
-            src="/videos/hero-scrub.mp4"
+            src="https://gowhvltdclhlkdjjiwnb.supabase.co/storage/v1/object/public/Video/hero-scrub.mp4"
             muted
             playsInline
             preload="auto"
