@@ -1,23 +1,29 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useCallback } from 'react'
 import { gsap, ScrollTrigger } from '@/lib/gsap'
 import { HERO_PHRASES } from '@/lib/data'
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const stickyRef = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
   const phrasesRef = useRef<(HTMLDivElement | null)[]>([])
   const flashRef = useRef<HTMLDivElement>(null)
   const overlayRef = useRef<HTMLDivElement>(null)
 
+  const handleVideoReady = useCallback(() => {
+    if (!videoRef.current) return
+    // Lancer le play explicitement une fois les données chargées
+    videoRef.current.play().catch(() => {})
+    // Animation d'entrée fluide une fois la vidéo prête
+    gsap.fromTo('.hero-video',
+      { scale: 1.1, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 2, ease: 'power2.out' }
+    )
+  }, [])
+
   useEffect(() => {
     const ctx = gsap.context(() => {
-
-      // Animation d'entrée — la vidéo scale depuis 1.1 vers 1
-      gsap.fromTo('.hero-video',
-        { scale: 1.1, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 2, ease: 'power2.out' }
-      )
 
       // Surtitre glisse depuis la gauche
       gsap.fromTo('.hero-surtitre',
@@ -187,12 +193,16 @@ export default function HeroSection() {
       >
         {/* Vidéo */}
         <video
+          ref={videoRef}
           className="hero-video absolute inset-0 w-full h-full object-cover"
           src="https://gowhvltdclhlkdjjiwnb.supabase.co/storage/v1/object/public/Video/hero.mp4"
           autoPlay
           muted
           loop
           playsInline
+          preload="auto"
+          onCanPlayThrough={handleVideoReady}
+          style={{ opacity: 0 }}
         />
 
         {/* Overlay principal */}
