@@ -177,7 +177,7 @@ export default function HeroSection() {
         >
           <video
             ref={videoRef}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover sm:scale-100 scale-[1.3] object-center"
             src="https://gowhvltdclhlkdjjiwnb.supabase.co/storage/v1/object/public/Video/hero-scrub.mp4"
             muted
             playsInline
@@ -216,7 +216,7 @@ export default function HeroSection() {
           </div>
 
           {/* Phrases superposées */}
-          <div className="relative" style={{ height: 'clamp(5rem, 9vw, 10rem)' }}>
+          <div className="relative h-[7rem] sm:h-[clamp(5rem,9vw,10rem)]">
             {HERO_PHRASES.map((phrase, i) => (
               <div
                 key={i}

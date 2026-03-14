@@ -134,7 +134,7 @@ export default function BenefitSection({ benefit, reverse = false, videoSrc }: P
   )
 
   const videoContent = (
-    <div className="relative w-full h-[50vh] md:h-full overflow-hidden">
+    <div className="relative w-full h-[56vw] sm:h-[50vh] md:h-full overflow-hidden">
       <video
         ref={videoRef}
         src={videoSrc}
@@ -142,7 +142,7 @@ export default function BenefitSection({ benefit, reverse = false, videoSrc }: P
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-contain sm:object-cover"
       />
       {/* Overlay subtil */}
       <div
