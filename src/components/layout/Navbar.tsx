@@ -37,14 +37,14 @@ export default function Navbar() {
         padding: scrolled ? '0.875rem 0' : '1.5rem 0',
       }}
     >
-      <div className="max-w-[1400px] mx-auto px-8 md:px-16 flex items-center justify-between">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 md:px-16 flex items-center justify-between">
 
         {/* Logo */}
         <a href="/" className="flex items-center">
           <img
             src="https://www.cap-milanesio.fr/wp-content/uploads/2025/03/cropped-Logo-groupe-milanesio.webp"
             alt="Groupe Milanesio"
-            className="h-9 w-auto object-contain"
+            className="h-7 sm:h-9 w-auto object-contain"
             style={{ filter: 'brightness(0) invert(1)' }}
           />
         </a>
@@ -89,7 +89,7 @@ export default function Navbar() {
 
       {/* Menu mobile */}
       <div className={`md:hidden overflow-hidden transition-all duration-400 ${menuOpen ? 'max-h-96' : 'max-h-0'}`}>
-        <div className="bg-[#0d0d0d] border-t border-[#1a1a1a] px-8 py-6 flex flex-col gap-5">
+        <div className="bg-[#0d0d0d] border-t border-[#1a1a1a] px-5 sm:px-8 py-5 flex flex-col gap-4">
           {NAV_LINKS.map((link) => (
             <a
               key={link.label}

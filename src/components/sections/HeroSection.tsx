@@ -216,24 +216,24 @@ export default function HeroSection() {
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-28 bg-[#dd3d53] z-[3]" />
 
         {/* Contenu */}
-        <div className="absolute inset-0 z-[3] flex flex-col justify-center px-8 md:px-16 lg:px-24 max-w-[1400px] mx-auto w-full">
+        <div className="absolute inset-0 z-[3] flex flex-col justify-center px-5 sm:px-8 md:px-16 lg:px-24 max-w-[1400px] mx-auto w-full">
 
           {/* Surtitre */}
-          <div className="hero-surtitre flex items-center gap-4 mb-8">
+          <div className="hero-surtitre flex flex-wrap items-center gap-2 sm:gap-4 mb-4 sm:mb-8">
             <span className="section-number">Groupe Milanesio</span>
-            <div className="divider-line" />
-            <span className="text-[#707070] text-xs tracking-widest uppercase">
+            <div className="divider-line hidden sm:inline-block" />
+            <span className="text-[#707070] text-[10px] sm:text-xs tracking-widest uppercase">
               5 marques · 6 concessions
             </span>
           </div>
 
           {/* Phrases superposées */}
-          <div className="relative" style={{ height: 'clamp(3rem, 9vw, 10rem)' }}>
+          <div className="relative" style={{ height: 'clamp(5rem, 9vw, 10rem)' }}>
             {HERO_PHRASES.map((phrase, i) => (
               <div
                 key={i}
                 ref={el => { phrasesRef.current[i] = el }}
-                className="absolute top-0 left-0 text-display text-white leading-none"
+                className="absolute top-0 left-0 text-display text-white leading-none max-w-[90vw] sm:max-w-none"
                 style={{
                   opacity: i === 0 ? 1 : 0,
                   willChange: 'transform, opacity, filter',
@@ -245,19 +245,19 @@ export default function HeroSection() {
           </div>
 
           {/* Sous-titre */}
-          <p className="mt-6 text-[#a0a0a0] text-sm md:text-base max-w-xl leading-relaxed">
+          <p className="mt-4 sm:mt-6 text-[#a0a0a0] text-xs sm:text-sm md:text-base max-w-xl leading-relaxed">
             Avignon · Aix-en-Provence · Marignane · Marseille · Saint-Victoret · Salon-de-Provence
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap gap-4 mt-10">
-            <a href="#vehicules" className="hero-cta btn-primary">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-6 sm:mt-10">
+            <a href="#vehicules" className="hero-cta btn-primary justify-center sm:justify-start">
               Découvrir nos véhicules
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </a>
-            <a href="#contact" className="hero-cta btn-outline">
+            <a href="#contact" className="hero-cta btn-outline justify-center sm:justify-start">
               Nous contacter
             </a>
           </div>
